@@ -25,6 +25,8 @@ class Project(ShAPIView):
                 project['cost'] = 0
             project['cost'] = round(project['cost'], 2)
 
+        project_list = sorted(project_list, key=itemgetter('cost'), reverse=True)
+
         return Response(project_list, status=200)
 
 
